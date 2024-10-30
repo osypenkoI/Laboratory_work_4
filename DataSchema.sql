@@ -14,7 +14,7 @@ CREATE TABLE notification_settings (
 -- Створення таблиці Users
 -- Обмеження для username: регулярний вираз для допустимих символів
 -- Обмеження для email: регулярний вираз для формату email
-CREATE TABLE users (
+CREATE TABLE user (
     user_id INT PRIMARY KEY,
     username VARCHAR(50) NOT NULL CHECK (username ~ '^[a-zA-Z0-9_]{3,50}$'),
     email VARCHAR(100) NOT NULL
