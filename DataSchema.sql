@@ -14,7 +14,7 @@ CREATE TABLE notification_settings (
 -- Створення таблиці Users
 -- Обмеження для username: регулярний вираз для допустимих символів
 -- Обмеження для email: регулярний вираз для формату email
-CREATE TABLE user (
+CREATE TABLE users (
     user_id INT PRIMARY KEY,
     username VARCHAR(50) NOT NULL CHECK (username ~ '^[a-zA-Z0-9_]{3,50}$'),
     email VARCHAR(100) NOT NULL
@@ -36,7 +36,7 @@ CREATE TABLE humidity_level (
 );
 
 -- Створення таблиці Notification
-CREATE TABLE notification (
+CREATE TABLE Notification (
     notification_id INT PRIMARY KEY,
     user_id INT,
     notification_settings_id INT,
