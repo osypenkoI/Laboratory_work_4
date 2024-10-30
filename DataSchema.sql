@@ -34,7 +34,7 @@ CREATE TABLE humidity_level (
     humidity_level_id INT PRIMARY KEY,
     user_id INT,
     humidity_limits_id INT,
-    value FLOAT CHECK (value BETWEEN 0 AND 100),
+    value_of_level FLOAT CHECK (value BETWEEN 0 AND 100),
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     FOREIGN KEY (humidity_limits_id)
     REFERENCES humidity_limits (humidity_limits_id)
