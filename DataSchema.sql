@@ -36,7 +36,7 @@ CREATE TABLE humidity_level (
 );
 
 -- Створення таблиці Notification
-CREATE TABLE Notification (
+CREATE TABLE notification (
     notification_id INT PRIMARY KEY,
     user_id INT,
     notification_settings_id INT,
