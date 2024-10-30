@@ -12,22 +12,17 @@ CREATE TABLE notification_settings (
 );
 
 -- Створення таблиці Users
+-- Обмеження для username: регулярний вираз для допустимих символів
+-- Обмеження для email: регулярний вираз для формату email
 CREATE TABLE users (
     user_id INT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+    username VARCHAR(50) NOT NULL CHECK (username ~ '^[a-zA-Z0-9_]{3,50}$'),
+    email VARCHAR(100) NOT NULL
+    CHECK (email ~ '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'),
     notification_settings_id INT,
     FOREIGN KEY (notification_settings_id)
     REFERENCES notification_settings (notification_settings_id)
 );
-
--- Обмеження для username: регулярний вираз для допустимих символів
-ALTER TABLE users ADD CONSTRAINT username_format
-CHECK (username ~ '^[a-zA-Z0-9_]{3,50}$');
-
--- Обмеження для email: регулярний вираз для формату email
-ALTER TABLE users ADD CONSTRAINT email_format
-CHECK (email ~ '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$');
 
 -- Створення таблиці HumidityLevel
 CREATE TABLE humidity_level (
